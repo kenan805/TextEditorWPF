@@ -89,16 +89,14 @@ namespace TextEditorWPF
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.FileName = "Document.txt";
-            save.Filter = "Text File | *.txt";
-            if (save.ShowDialog() == true)
+            if (txbFilePath.Text.Length != 0)
             {
-                StreamWriter writer = new StreamWriter(save.OpenFile());
-                writer.WriteLine(txbText.Text);
-                writer.Dispose();
-                writer.Close();
+                File.WriteAllText(txbFilePath.Text, txbText.Text);
                 MessageBox.Show("Succesfully saved", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please write a file path name!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -123,6 +121,22 @@ namespace TextEditorWPF
         private void CbFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e) => txbText.FontSize = double.Parse(cbFontSize.SelectedItem.ToString());
 
         private void ToggleButtonAutoSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (ToggleButtonAutoSave.IsChecked == true)
+            {
+                if (txbFilePath.Text.Length != 0)
+                {
+                    File.WriteAllText(txbFilePath.Text, txbText.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Please write a file path name!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ToggleButtonAutoSave.IsChecked = false;
+                }
+            }
+        }
+
+        private void TxbText_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ToggleButtonAutoSave.IsChecked == true)
             {

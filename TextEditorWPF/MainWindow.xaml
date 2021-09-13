@@ -127,7 +127,7 @@
 
         <Grid Grid.Row="1">
             <Border CornerRadius="0 0 12 12 " Background="#C4C4C4">
-                <TextBox Name="txbText" IsEnabled="False" Margin="110 40" Background="White"
+                <TextBox TextChanged="TxbText_TextChanged" Name="txbText" IsEnabled="False" Margin="110 40" Background="White"
          
          TextWrapping="WrapWithOverflow">
                     <TextBox.Effect>
