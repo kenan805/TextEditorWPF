@@ -43,7 +43,7 @@
                         <Button Click="ButtonTextOperations_Click" Name="btnCopy" IsEnabled="False" Margin="265,56,455,21.2" Height="Auto" Width="Auto">Copy</Button>
                         <Button Click="ButtonTextOperations_Click" Name="btnPaste" IsEnabled="False" Margin="180,20,455,50" Width="Auto">Paste</Button>
                         <Button Click="ButtonTextOperations_Click" Name="btnSelectAll" IsEnabled="False" Margin="360,27,330,20.2" Height="Auto" Width="Auto">Select all</Button>
-                        <TextBox Name="txbFilePath" FontSize="14" Margin="482,26,150,48.2">                        </TextBox>
+                        <TextBox Name="txbFilePath" FontSize="14" Margin="482,26,152,48.2">                        </TextBox>
                         <Button x:Name="btnOpenFile" Click="BtnOpenFile_Click" Height="32.8" Width="40" Margin="652,26,108,48.2">
                             <Image Source="Resources/sort_up_24px.png" Height="26" Width="26"></Image>
                         </Button>
@@ -109,6 +109,7 @@
                                     </Style>
                                 </ToggleButton.Resources>
                             </ToggleButton>
+                            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Margin="700,59,10,16.2" Content= "Auto save"/>
                         </Grid>
                     </Grid>
                 </Border>

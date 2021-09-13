@@ -133,6 +133,7 @@ namespace TextEditorWPF
                 else
                 {
                     MessageBox.Show("Please write a file path name!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ToggleButtonAutoSave.IsChecked = false;
                 }
             }
         }
